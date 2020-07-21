@@ -1,6 +1,10 @@
 package org.example;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class TestSuit extends BaseTest  {
     // object of the classes
@@ -15,6 +19,9 @@ public class TestSuit extends BaseTest  {
     EmailAFriendInformation emailAFriendInformation = new EmailAFriendInformation();
     EmailSendSuccessfully emailSendSuccessfully = new EmailSendSuccessfully();
     ShoppingCart shoppingCart = new ShoppingCart();
+    Facebook facebook = new Facebook();
+    OnlineStore onlineStore = new OnlineStore();
+    IFrameHandle iFrameHandle = new IFrameHandle();
     @Test(priority = 1)
     public void verifyUserShouldAbleToRegisterSuccessFully(){
 
@@ -63,5 +70,65 @@ public class TestSuit extends BaseTest  {
         shoppingCart.userVerifyShoppingCartMassage();
 
     }
+    @Test
+    public void VerifyEachProductHaveName()
+    {
+        List<WebElement> ProductName = driver.findElements(By.xpath("//div[contains(@class,'product')]/div[2]/div/div[1]/div[2]/h2/a"));
+        for (WebElement Product :ProductName)
+            System.out.println(Product.getText());
+    }
+    @Test(priority = 4)
+    public void demoGetAlert(){
+        //click on search button
+        homePage.clickOnSearchButton();
+        //click on alert
+        homePage.clickAlert();
 
+    }
+    @Test(priority = 5)
+    public void verifyWindowPopUp(){
+        // click on facebook button
+        homePage.clickOnFacebookButton();
+        //click on swap window
+        facebook.verifyUserIsSwapWindow();
+        //verify URL by assert
+        facebook.verifyURl();
+      //  user verify the text
+        facebook.verifyText();
+        // verify color of text
+        facebook.verifyColourOfText();
+      // go to main window
+        facebook.GoToMainWindow();
+    }
+    @Test(priority = 6)
+    public void verifyDetailOfNews(){
+        //click on details Button
+        homePage.clickOnDetailsButton();
+        // type the text in comment
+        onlineStore.verifyURlForOnlineStore();
+        // assert comment
+        onlineStore.verifyNewComment();
+        // user can verify massage successfully
+        onlineStore.VerifyCommentMassageSuccessfully();
+        // assert the comment of the text
+        onlineStore.assertText();
+    }
+    @Test(priority =7)
+    public void verifyCurrency(){
+        //click on currency BUTTON
+        homePage.clickOnCurrencyButton();
+        // get assert for currency
+        homePage.assertForCurrency();
+    }
+    @Test(priority = 8)
+    public void VerifyIFrameHandle(){
+        //handle swichiframe
+        iFrameHandle.SwichIframe();
+        // get frame name
+        iFrameHandle.animalName();
+        // get the animal name
+        iFrameHandle.animal();
+    }
 }
+
+
