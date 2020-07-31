@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.concurrent.TimeUnit;
 
+
 public class BrowserManager extends Util {
     public void setBrowser() {
         //setting up chrome driver path
@@ -17,7 +18,6 @@ public class BrowserManager extends Util {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        // WebDriver driver = new ChromeDriver(options);
         driver.get("https://demo.nopcommerce.com/");
 
 

@@ -24,7 +24,7 @@ public class TestSuit extends BaseTest  {
     IFrameHandle iFrameHandle = new IFrameHandle();
     @Test(priority = 1)
     public void verifyUserShouldAbleToRegisterSuccessFully(){
-
+         homePage.verifyTextOnHomePage();
         //click on register button
         homePage.clickOnRegisterButton();
         // user enters registration details

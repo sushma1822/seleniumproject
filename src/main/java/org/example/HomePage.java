@@ -18,6 +18,12 @@ public class HomePage extends Util {
     private By _DetailsButton = By.xpath("//div[@class=\"news-items\"]/div[1]/div[3]/a[1]");
     private By _currencyButton = By.xpath("//select[@id=\"customerCurrency\"]");
 
+    public void verifyTextOnHomePage(){
+        String expectedTitle = "Welcome to our store";
+        String actualText1 = getTextFromElement(By.xpath("//h2[text()=\"Welcome to our store\"]"));
+        Assert.assertEquals(actualText1,expectedTitle);
+    }
+
    // method for click on register button
     public void clickOnRegisterButton() {
 

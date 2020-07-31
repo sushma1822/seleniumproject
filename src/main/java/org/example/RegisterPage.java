@@ -3,6 +3,8 @@ package org.example;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
+import java.util.concurrent.TimeUnit;
+
 public class RegisterPage extends Util {
     //stored variables
     private By _Gender =  By.xpath("//input[@id=\"gender-female\"]");
@@ -23,8 +25,10 @@ public class RegisterPage extends Util {
     //method for enter register details
     public void userEnterRegistrationDetails(){
         clickOnElement(_Gender,20);
-        typeText(_firstName,"sushma",20);
-        typeText(_lastName,"patel",20);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        typeText(_firstName,"sushma",60);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        typeText(_lastName,"patel",60);
         selectFromDropDownByVisibleText(_dateOfBirthday,"18");
         selectFromDropDownByVisibleText(_dateOfBirthMonth,"March");
         selectFromDropDownByVisibleText(_dateOfBirthYear,"1992");
